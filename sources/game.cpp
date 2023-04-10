@@ -185,19 +185,26 @@ void Game::playAll()
 
 void Game::printWiner()
 {
-    if (player1.cardesTaken() > player2.cardesTaken())
+    if (gameOver())
     {
-        cout << player1.getPlayerName() << " won the game" << endl;
-        player1.setWinner();
-    }
-    else if (player1.cardesTaken() < player2.cardesTaken())
-    {
-        cout << player2.getPlayerName() << " won the game" << endl;
-        player2.setWinner();
+        if (player1.cardesTaken() > player2.cardesTaken())
+        {
+            cout << player1.getPlayerName() << " won the game" << endl;
+            player1.setWinner();
+        }
+        else if (player1.cardesTaken() < player2.cardesTaken())
+        {
+            cout << player2.getPlayerName() << " won the game" << endl;
+            player2.setWinner();
+        }
+        else
+        {
+            cout << "the game ended in a draw" << endl;
+        }
     }
     else
     {
-        cout << "there is no winner yet,game has not ended" << endl;
+        cout << "there is no winner yet,game has not ended." << endl;
     }
 }
 
